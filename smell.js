@@ -4,7 +4,21 @@ function addFaq(){var t=document.querySelector('div.w-wrapper.product-descriptio
 
 function addGarantie(){var t=document.querySelector('div.w-wrapper.product-description');if(!t||document.querySelector('.pgar'))return;var s=document.createElement('style');s.textContent='.pgar{background:#faf7f4;border:1px solid #e8e0d8;border-radius:8px;padding:16px;margin:16px 0}.pgar h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#1a1a1a;margin:0 0 12px}.pgar>div{display:flex;flex-direction:column;gap:10px}.pgar li{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#555;line-height:1.5;list-style:none}.pgar em{font-size:18px;font-style:normal;flex-shrink:0}';document.head.appendChild(s);var d=document.createElement('div');d.className='pgar';d.innerHTML='<h4>Notre engagement</h4><div><li><em>✨</em><span><strong style="color:#1a1a1a">Parfumerie de niche authentique</strong> — chaque fragrance est sélectionnée pour son caractère unique et sa qualité de composition.</span></li><li><em>📦</em><span><strong style="color:#1a1a1a">Expédition sous 24h</strong> — votre colis est emballé avec soin dans un écrin protecteur, prêt à être offert.</span></li><li><em>↩️</em><span><strong style="color:#1a1a1a">Retour sous 14 jours</strong> — si vous n\'êtes pas pleinement satisfait, nous vous remboursons.</span></li></div>';t.parentNode.insertBefore(d,t.nextSibling);}
 
-function addVideo(){var t=document.querySelector('.pgar');if(!t||document.querySelector('.pvid'))return;var s=document.createElement('style');s.textContent='.pvid{margin:16px 0}.pvid p{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#1a1a1a;margin:0 0 10px;text-align:center}.pvid .fr{max-width:360px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid #e8e0d8;aspect-ratio:9/16;position:relative}.pvid iframe{width:100%;height:100%;border:none;position:absolute;top:0;left:0}@media(max-width:600px){.pvid .fr{max-width:100%}}';document.head.appendChild(s);var d=document.createElement('div');d.className='pvid';d.innerHTML='<p>✦ Notre univers</p><div class="fr"></div>';t.parentNode.insertBefore(d,t);var fr=d.querySelector('.fr');new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!fr.querySelector('iframe')){var f=document.createElement('iframe');f.src='https://iframe.cloudflarestream.com/b54b0d2d8ae301523c65ad408f366b55?autoplay=true&muted=true&loop=true&controls=false&preload=none';f.allow='autoplay;fullscreen';fr.appendChild(f);}else if(!e.isIntersecting&&fr.querySelector('iframe')){fr.querySelector('iframe').src='';}});},{threshold:0.3}).observe(d);}
+function addVideo(){
+var t=document.querySelector('.pgar');
+if(!t||document.querySelector('.pvid'))return;
+var s=document.createElement('style');
+s.textContent='.pvid{margin:16px 0}.pvid p{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#1a1a1a;margin:0 0 10px;text-align:center}behold-widget{--behold-column-count:3;--behold-gap:4px;--behold-border-radius:8px}';
+document.head.appendChild(s);
+var d=document.createElement('div');
+d.className='pvid';
+d.innerHTML='<p>✦ Notre univers</p><behold-widget feed-id="TON_FEED_ID"></behold-widget>';
+t.parentNode.insertBefore(d,t);
+var sc=document.createElement('script');
+sc.src='https://w.behold.so/widget.js';
+sc.type='module';
+d.appendChild(sc);
+}
 
 function run(){
   var t=document.querySelector('div.w-wrapper.product-description');
